@@ -3,10 +3,9 @@ import { useSession, signIn  } from 'next-auth/react';
 import { api } from '../../services/api';
 import { getStripeJs } from '../../services/stripe-js';
 
-import * as T from './ISubscribeButtonProps';
 import styles from './styles.module.scss';
 
-export const SubscribeButton = (priceId: T.ISubscribeButtonProps) => {
+export const SubscribeButton = () => {
   const router = useRouter()
   const {data: session} = useSession();
 
@@ -18,15 +17,15 @@ export const SubscribeButton = (priceId: T.ISubscribeButtonProps) => {
 
     if (session.activeSubscription) {
       router.push('/posts');
-      return 
+      return
     }
 
     // criação da checkout session no front-end
     try {
       const response = await api.post('/subscribe');
-      
+
       const { sessionId } = response.data;
-      
+
       const stripe = await getStripeJs();
 
       await stripe.redirectToCheckout({ sessionId });
@@ -42,7 +41,7 @@ export const SubscribeButton = (priceId: T.ISubscribeButtonProps) => {
       className={styles.subscribeButton}
       onClick={handleSubscribe}
     >
-      Subscribe now 
+      Subscribe now
     </button>
   )
 }
