@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ActiveLink } from '.'
 
 // Mocking the useRouter hook
@@ -34,13 +34,14 @@ describe('ActiveLink component', () => {
 
   // Testing the ActiveLink component with a link that is not active
   it('adds active class if the link as curretly active', () => {
-    const { getByText } = render(
+    render(
       <ActiveLink href="/" activeClassName="active">
         <a>Home</a>
       </ActiveLink>
     )
 
     // Verifying if the link is active
-    expect(getByText('Home'),).toHaveClass('active')
+    // Other way to verify if the link is active
+    expect(screen.getByText('Home'),).toHaveClass('active')
   })
 })

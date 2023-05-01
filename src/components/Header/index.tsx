@@ -2,15 +2,12 @@ import NextImage from 'next/image'
 import { SignInButton } from '../SignInButton'
 import styles from './styles.module.scss'
 import { ActiveLink } from '../ActiveLink/index';
-import Link from 'next/link';
 
 export const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <Link href="/" passHref>
-          <NextImage src="/images/logo.svg" alt="ig.news" width={108} height={30} />
-        </Link>
+        <NextImage src="/images/logo.svg" alt="ig.news" width={108} height={30} />
         <nav>
           <ActiveLink activeClassName={styles.active} href="/">
             <a>Home</a>
@@ -24,3 +21,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export { ActiveLink };
