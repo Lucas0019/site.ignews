@@ -21,3 +21,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export { ActiveLink };

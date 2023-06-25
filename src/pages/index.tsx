@@ -11,7 +11,7 @@ import styles from './home.module.scss';
 interface HomeProps {
   product: {
     priceId: string;
-    amount: number;
+    amount: string
   }
 }
 
@@ -19,7 +19,7 @@ export default function Home({product}: HomeProps) {
 
   return (
     <>
-      <Head> 
+      <Head>
         <title>Home | ig.news</title>
       </Head>
 
@@ -31,13 +31,13 @@ export default function Home({product}: HomeProps) {
             Get access to all the publications <br />
             <span>for {` `} <strong>{product.amount} month</strong></span>
           </p>
-          <SubscribeButton priceId={product.priceId}/>
+          <SubscribeButton/>
         </section>
-        <NextImage 
-          src="/images/avatar.svg" 
-          width={600} height={600} 
+        <NextImage
+          src="/images/avatar.svg"
+          width={600} height={600}
           // layout='fill'
-          alt="Girl Coding" 
+          alt="Girl Coding"
         />
       </main>
     </>
