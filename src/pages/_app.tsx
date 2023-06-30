@@ -4,7 +4,7 @@ import { Header } from '../components/Header/index';
 import { SessionProvider } from 'next-auth/react'
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps | any) {
   return (
     <SessionProvider>
       <Header/>
